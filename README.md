@@ -7,8 +7,9 @@ Installing OpenCV from source and install pre-reqs..
 
 #2. Fix NVCC Cuda Compiler path.
 -------------------------------
--  Edit '/etc/envirionment' and add an entry for '/usr/local/cuda/bin'
--  Reboot
+-  Edit '/etc/environment' and add an entry for '/usr/local/cuda/bin'
+-  Logout or Reboot
+-  In a terminal, run 'echo $PATH' to confirm the path has been added.
 
 #3. Install CUDNN
 ----------------
@@ -17,11 +18,13 @@ Installing OpenCV from source and install pre-reqs..
 - install CUDNN Developer Library from DEB
 - Install CUDNN Docs from DEB
 
-#4. Download CUDA CODEC SDK
+#4. Download NVIDIA VIDEO CODEC SDK
 --------------------------
 - Download from https://developer.nvidia.com/nvidia-video-codec-sdk#Download
 - Copy all files from 'include' folder to to '/usr/local/cuda/include'
-- sudo cp include/*.h /usr/local/cuda/include
+```
+sudo cp include/*.h /usr/local/cuda/include
+```
 
 #5. Build from source and install OpenCV
 ---------------------------------------
