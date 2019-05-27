@@ -29,6 +29,5 @@ sudo cp include/*.h /usr/local/cuda/include
 - Run the script to install all pre-reqs and build and install OpenCV
 
 ** NOTE for OpenCV4 you create symlink to OpenCV2 path
-- 'sudo ln -s /usr/local/include/opencv4/opencv2 /usr/local/include/opencv2'
-
+- sudo ln -s /usr/local/include/opencv4/opencv2 /usr/local/include/opencv2'
 
