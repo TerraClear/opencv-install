@@ -21,7 +21,7 @@ Installing OpenCV from source and install pre-reqs..
 --------------------------
 - Download from https://developer.nvidia.com/nvidia-video-codec-sdk#Download
 - Copy all files from 'include' folder to to '/usr/local/cuda/include'
-sudo cp include/*.h /usr/local/cuda/include
+- sudo cp include/*.h /usr/local/cuda/include
 
 #5. Build from source and install OpenCV
 ---------------------------------------
