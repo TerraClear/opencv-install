@@ -2,7 +2,7 @@
 
 
 #install opencv
-cvVersion="4.1.0"
+cvVersion="3.4.6"
 
 # Save current working directory
 cwd=$(pwd)
