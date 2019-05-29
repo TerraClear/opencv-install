@@ -25,6 +25,10 @@ Installing OpenCV from source and install pre-reqs..
 ```
 sudo cp include/*.h /usr/local/cuda/include
 ```
+** For OpenCV 3.4.6, rename or copy nvcuvid.h to dynlink_nvcuvid.h
+```
+sudo cp include/nvcuvid.h /usr/local/cuda/include/dynlink_nvcuvid.h
+```
 
 #5. Build from source and install OpenCV
 ---------------------------------------
