@@ -36,6 +36,6 @@ sudo cp include/nvcuvid.h /usr/local/cuda/include/dynlink_nvcuvid.h
 - Run the script to install all pre-reqs and build and install OpenCV
 
 ** NOTE for OpenCV4 you would need to create symlink to OpenCV2 path
-- sudo ln -s /usr/local/include/opencv4/opencv2 /usr/local/include/opencv2'
+- sudo ln -s /usr/local/include/opencv4/opencv2 /usr/local/include/opencv2
 - Also, any projects linked with opencv pkconfig library would need to use opencv4 instead
 
