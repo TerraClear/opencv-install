@@ -9,7 +9,7 @@ Installing OpenCV from source and install pre-reqs..
 -------------------------------
 -  Edit '/etc/environment' and add an entry for '/usr/local/cuda/bin'
 -  Logout or Reboot
--  In a terminal, run 'echo $PATH' to confirm the path has been added.
+-  To verify nvcc is functional and checl version, run 'nvcc --version' 
 
 #3. Install CUDNN
 ----------------
