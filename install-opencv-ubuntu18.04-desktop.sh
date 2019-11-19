@@ -1,11 +1,14 @@
 #!/bin/bash
 
+# force exit if any command fails
+set -e
+# keep track of the last executed command
+trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
+# echo an error message before exiting
+trap 'echo "\"${last_command}\" command filed with exit code $?."' EXIT
 
 #install opencv
-cvVersion="3.4.6"
-
-# Save current working directory
-cwd=$(pwd)
+cvVersion="4.1.0"
 
 # update packages
 sudo apt -y update
@@ -24,9 +27,9 @@ sudo apt -y install -y libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev lib
 #install video codecs
 sudo apt -y install libavcodec-dev libavformat-dev libswscale-dev libdc1394-22-dev
 sudo apt -y install x264 libv4l-dev v4l-utils libxine2-dev qv4l2 v4l2ucp
-cd /usr/include/linux
+pushd /usr/include/linux
 sudo ln -s -f ../libv4l1-videodev.h videodev.h
-cd $cwd
+popd
 
 sudo apt -y install libgtk2.0-dev qt5-default
 sudo apt -y install libatlas-base-dev
@@ -48,19 +51,18 @@ sudo apt -y install -y python2.7-dev python3.6-dev python-dev python-numpy pytho
 
 #clone OpenCV
 git clone https://github.com/opencv/opencv.git
-cd opencv
+pushd opencv
 git checkout $cvVersion
-cd ..
+popd
 
-git clone https://github.com/opencv/opencv_contrib.git
-cd opencv_contrib
+#git clone https://github.com/opencv/opencv_contrib.git
+pushd opencv_contrib
 git checkout $cvVersion
-cd ..
+popd
 
 # compile and install
-cd opencv
-mkdir build
-cd build
+mkdir opencv/build
+cd opencv/build
 
 # -D BUILD_opencv_cudacodec=ON \
 #-D WITH_V4L=ON 
@@ -95,7 +97,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
       -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
       -D OPENCV_GENERATE_PKGCONFIG=YES \
       -D BUILD_EXAMPLES=OFF ..
-      
+
 # make with 12 cores..
 make -j12
 sudo make install
