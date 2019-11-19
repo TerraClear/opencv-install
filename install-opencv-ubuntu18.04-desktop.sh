@@ -98,8 +98,10 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
       -D OPENCV_GENERATE_PKGCONFIG=YES \
       -D BUILD_EXAMPLES=OFF ..
 
-# make with 12 cores..
-make -j12
+# make with one less core than is available on your system
+numCores=`grep -c processor /proc/cpuinfo`
+numCores=$(($numCores - 1))
+make -j$numCores
 sudo make install
 sudo sh -c 'echo "/usr/local/lib" >> /etc/ld.so.conf.d/opencv.conf'
 sudo ldconfig
