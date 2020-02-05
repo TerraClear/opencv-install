@@ -1,9 +1,9 @@
 # opencv-install
 Installing OpenCV from source and install pre-reqs..
 
-#1. Install CUDA 10.x
+#1. Install CUDA 10.1
 --------------------
-- Download and install CUDA 10.x from: https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal
+- Download and install CUDA 10.1 from: hhttps://developer.nvidia.com/cuda-toolkit-archive
 
 #2. Fix NVCC Cuda Compiler path.
 -------------------------------
